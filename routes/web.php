@@ -2,7 +2,7 @@
 use Illuminate\Http\Request;
 use App\Product;//Modelo para productos
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->group(function(){//encerar todo aqui para forzar autenticacion para visitar
     Route::get("/", function () {
         return view('index', compact('Products')); //resources/views/index.blade.php
     });
@@ -45,8 +45,12 @@ Route::middleware('auth')->group(function(){
         //return $request->all();
         return redirect()->route('products.index')->with('info', 'Producto actualizado existosamente');
     })->name('products.update');
+
+    Route::get('/tasks', 'TaskController@index')->name('tasks.index'); //Controller @ function/method
+    Route::post('/tasks', 'TaskController@store')->name('tasks.store'); //Controller @ function/method
+    Route::delete('/tasks/{id}', 'TaskController@destroy')->name('tasks.destroy'); //Controller @ function/method
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');//usar esto, si no empleo el middleware en Route...; //Controller @ function/method

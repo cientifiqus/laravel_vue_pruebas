@@ -5,7 +5,8 @@
 @endsection
 @section('contenido')
     <form action="{{ route('products.store') }}" method="POST">
-        @csrf <!-- para autenticar el envio de este formulario en laravel, mediante plantillas blade -->
+        @csrf
+        <!-- para autenticar el envio de este formulario en laravel, mediante plantillas blade -->
         <div class="form-group">
             <label for="description">Descripción</label>
             <input type="text" class="form-control" name="description">

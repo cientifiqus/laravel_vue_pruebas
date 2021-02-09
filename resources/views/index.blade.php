@@ -5,5 +5,6 @@
 @section('contenido')
     <div>
         <a href="{{ route('products.index') }}" class="btn btn-secondary btn-sm ">Productos</a>
+        <a href="{{ route('tasks.index') }}" class="btn btn-secondary btn-sm ">Tareas</a>
     </div>
 @endsection
