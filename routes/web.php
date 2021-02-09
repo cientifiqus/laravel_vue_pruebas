@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function(){//encerar todo aqui para forzar aute
     })->name('products.update');
 
     Route::get('/tasks', 'TaskController@index')->name('tasks.index'); //Controller @ function/method
+    Route::get('/tasks/{id}', 'TaskController@editView')->name('tasks.edit_view'); //Controller @ function/method
+    Route::get('/tasks/edit/{id}', 'TaskController@edit')->name('tasks.edit'); //Controller @ function/method
     Route::post('/tasks', 'TaskController@store')->name('tasks.store'); //Controller @ function/method
     Route::delete('/tasks/{id}', 'TaskController@destroy')->name('tasks.destroy'); //Controller @ function/method
 });
